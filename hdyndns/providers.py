@@ -103,7 +103,7 @@ class GandiDynDNS():
         if dns_ip == dynamic_ip:
             message = 'DNS A record and Dynamic IP for {} match'
             logger.info(message.format(self.domain))
-            exit(EXIT_CODE_0_OK)
+            return
 
         headers = {
             'X-Api-Key': self.api_secret,
@@ -119,5 +119,3 @@ class GandiDynDNS():
             }
             put(url, payload, headers=headers)
             logger.info('Updated {} entry with IP {}'.format(name, dynamic_ip))
-
-        exit(EXIT_CODE_0_OK)

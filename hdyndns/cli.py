@@ -23,10 +23,12 @@ def cli_entrypoint() -> None:
     validate_api_secrets(config, sections)
 
     for section in sections:
+        logger.info('Section {}'.format(section))
+
         if 'gandi' == config[section]['provider']:
             logger.info('Processing {} with provider Gandi'.format(section))
             GandiDynDNS(config[section]).update_dns()
-            exit(EXIT_CODE_0_OK)
         else:
             logger.critical('No supported provider found')
-            exit(EXIT_CODE_1_BAD)
+
+    exit(EXIT_CODE_0_OK)
