@@ -67,6 +67,7 @@ Then create a configuration file at `/home/hdyndns/.hdyndns/hdyndns.ini`:
 provider = gandi
 api_secret = mySuperSecretApiPassword
 subdomains = foo,bar
+ip_versions = 4,6
 ```
 
 Finally, add it your root crontab (`sudo crontab -e`) to run it every 15 minutes:
@@ -104,6 +105,7 @@ contributions welcome!
 * `api_secret`: The API secret for the DNS provider.
 * `subdomains`: Optional comma separated list of subdomains to also update DNS entries for.
 * `ttl`: The DNS [time to live] counter in secods. Default is `1800`.
+* `ip_versions`: Comma separeted list of IP versions (4 and/or 6) to record. Default is `4`.
 
 [time to live]: https://en.wikipedia.org/wiki/Time_to_live
 
